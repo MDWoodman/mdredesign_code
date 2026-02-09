@@ -4,16 +4,16 @@ body{background:#f4f4f4;color:#222;scroll-behavior:smooth}
 .nav-logo{font-size:1.5rem;font-weight:bold;background:linear-gradient(135deg,#FFD700,#FFA500,#FF6347);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;letter-spacing:1px;text-shadow:0 0 20px rgba(255,215,0,0.3)}
 .nav ul{display:flex;gap:20px;list-style:none}
 .nav button{background:none;border:none;color:#fff;cursor:pointer;font-weight:bold}
-.hero{height:100vh;display:flex;flex-direction:column;justify-content:center;align-items:center;background:#222;color:#fff;text-align:center;padding-top:60px}
+.hero{height:40vh;display:flex;flex-direction:column;justify-content:center;align-items:center;background:#222;color:#fff;text-align:center;padding-top:60px}
 .hero h1{font-size:3.5rem;background:linear-gradient(135deg,#FFD700,#FFA500,#FF6347);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;letter-spacing:2px;text-shadow:0 0 30px rgba(255,215,0,0.4);animation:glow 2s ease-in-out infinite alternate}
 @keyframes glow{from{filter:drop-shadow(0 0 10px rgba(255,215,0,0.5))}to{filter:drop-shadow(0 0 20px rgba(255,165,0,0.8))}}
 .tagline{margin:15px 0}
 .hero-buttons button{margin:10px;padding:12px 24px;border:none;background:#fff;color:#111;cursor:pointer}
 .section{padding:100px 10%}
-.section-alt{background:#fff}
-.gallery{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:20px}
-.placeholder{background:#ccc;height:180px;display:flex;align-items:center;justify-content:center;font-weight:bold}
-.about{max-width:700px;margin:auto}
+.section-alt{background:#222;color:#fff;}
+.gallery{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));background:#222;color:#fff;gap:20px}
+.placeholder{background:#222;color:#fff;height:180px;display:flex;align-items:center;justify-content:center;font-weight:bold}
+.about{max-width:700px;margin:auto;background:#222;color:#fff;}
 .form{max-width:500px;margin:auto;display:flex;flex-direction:column;gap:15px}
 .form input,.form textarea{padding:10px}
 .form button{padding:12px;background:#111;color:#fff;border:none;cursor:pointer}
