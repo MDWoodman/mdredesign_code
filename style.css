@@ -9,7 +9,7 @@ body{background:#f4f4f4;color:#222;scroll-behavior:smooth}
 @keyframes glow{from{filter:drop-shadow(0 0 10px rgba(255,215,0,0.5))}to{filter:drop-shadow(0 0 20px rgba(255,165,0,0.8))}}
 .tagline{margin:15px 0}
 .hero-buttons button{margin:10px;padding:12px 24px;border:none;background:#fff;color:#111;cursor:pointer}
-.section{padding:100px 10%}
+.section{padding:1%;background:#222;color:#fff;}
 .section-alt{background:#222;color:#fff;}
 .gallery{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));background:#222;color:#fff;gap:20px}
 .placeholder{background:#222;color:#fff;height:180px;display:flex;align-items:center;justify-content:center;font-weight:bold}
