@@ -1,9 +1,12 @@
 *{margin:0;padding:0;box-sizing:border-box;font-family:Arial,sans-serif}
 body{background:#f4f4f4;color:#222;scroll-behavior:smooth}
 .nav{position:fixed;top:0;width:100%;background:#111;color:#fff;display:flex;justify-content:space-between;padding:10px 30px;z-index:1000}
+.nav-logo{font-size:1.5rem;font-weight:bold;background:linear-gradient(135deg,#FFD700,#FFA500,#FF6347);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;letter-spacing:1px;text-shadow:0 0 20px rgba(255,215,0,0.3)}
 .nav ul{display:flex;gap:20px;list-style:none}
 .nav button{background:none;border:none;color:#fff;cursor:pointer;font-weight:bold}
 .hero{height:100vh;display:flex;flex-direction:column;justify-content:center;align-items:center;background:#222;color:#fff;text-align:center;padding-top:60px}
+.hero h1{font-size:3.5rem;background:linear-gradient(135deg,#FFD700,#FFA500,#FF6347);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;letter-spacing:2px;text-shadow:0 0 30px rgba(255,215,0,0.4);animation:glow 2s ease-in-out infinite alternate}
+@keyframes glow{from{filter:drop-shadow(0 0 10px rgba(255,215,0,0.5))}to{filter:drop-shadow(0 0 20px rgba(255,165,0,0.8))}}
 .tagline{margin:15px 0}
 .hero-buttons button{margin:10px;padding:12px 24px;border:none;background:#fff;color:#111;cursor:pointer}
 .section{padding:100px 10%}
