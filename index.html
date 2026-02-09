@@ -5,6 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>MDReDesign</title>
   <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <script defer src="script.js"></script>
 </head>
 <body>
@@ -30,11 +33,62 @@
     </header>
 
     <section id="gallery" class="section">
-      <h2 style="background:#fff;color:#111;">Galeria realizacji</h2>
-      <div class="gallery">
-        <div class="placeholder">Zdjęcie 1</div>
-        <div class="placeholder">Zdjęcie 2</div>
-        <div class="placeholder">Zdjęcie 3</div>
+      <h2>Galeria realizacji</h2>
+      <div class="gallery-nav">
+        <button data-target="gallery-light">Światło</button>
+        <button data-target="gallery-time">Czas</button>
+      </div>
+      <div id="gallery-light" class="gallery-section">
+        <h3>Światło</h3>
+        <div class="gallery">
+          <figure class="gallery-item">
+            <img src="images/sample-1.svg" alt="Przykladowa realizacja: stolik w swietle">
+            <figcaption>
+              <span class="gallery-title">Renowacja stolika kawowego</span>
+              <span class="gallery-desc">Matowe olejowanie i cieply odcien drewna.</span>
+            </figcaption>
+          </figure>
+          <figure class="gallery-item">
+            <img src="images/sample-2.svg" alt="Przykladowa realizacja: panel dekoracyjny">
+            <figcaption>
+              <span class="gallery-title">Panel dekoracyjny z drewna</span>
+              <span class="gallery-desc">Naturalne sloje podkreslone swiatlem.</span>
+            </figcaption>
+          </figure>
+          <figure class="gallery-item">
+            <img src="images/sample-3.svg" alt="Przykladowa realizacja: krzesla w swietle">
+            <figcaption>
+              <span class="gallery-title">Krzesla po odnowie</span>
+              <span class="gallery-desc">Rzemieslnicze detale i subtelny polysk.</span>
+            </figcaption>
+          </figure>
+        </div>
+      </div>
+      <div id="gallery-time" class="gallery-section">
+        <h3>Czas</h3>
+        <div class="gallery">
+          <figure class="gallery-item">
+            <img src="images/sample-2.svg" alt="Przykladowa realizacja: odnowa po latach">
+            <figcaption>
+              <span class="gallery-title">Blat po 20 latach</span>
+              <span class="gallery-desc">Usuniete zarysowania, nowa struktura.</span>
+            </figcaption>
+          </figure>
+          <figure class="gallery-item">
+            <img src="images/sample-3.svg" alt="Przykladowa realizacja: krzesla po renowacji">
+            <figcaption>
+              <span class="gallery-title">Komplet krzesel</span>
+              <span class="gallery-desc">Wzmocniona konstrukcja i tapicerka.</span>
+            </figcaption>
+          </figure>
+          <figure class="gallery-item">
+            <img src="images/sample-1.svg" alt="Przykladowa realizacja: stolik po renowacji">
+            <figcaption>
+              <span class="gallery-title">Stolik po renowacji</span>
+              <span class="gallery-desc">Warstwowe bejcowanie i zabezpieczenie.</span>
+            </figcaption>
+          </figure>
+        </div>
       </div>
     </section>
 
@@ -47,7 +101,7 @@
     </section>
 
     <section id="order" class="section">
-      <h2 style="background:#fff;color:#111;">Zamówienie / Zapytanie</h2>
+      <h2>Zamówienie / Zapytanie</h2>
       <form class="form">
         <input type="text" placeholder="Imię i nazwisko" required>
         <input type="email" placeholder="Adres e-mail" required>
