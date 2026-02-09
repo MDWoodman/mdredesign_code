@@ -1,12 +1,72 @@
 <!DOCTYPE html>
 <html lang="pl">
 <head>
-  <meta charset="UTF-8">
-  <title>MDReDesign&Code</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MDReDesign&Code</title>
+<link rel="stylesheet" href="style.css">
+<script defer src="script.js"></script>
 </head>
 <body>
+
+<nav class="nav">
+  <div class="nav-logo">MDReDesign&Code</div>
+  <ul>
+    <li><button data-target="gallery">Galeria</button></li>
+    <li><button data-target="about">O mnie</button></li>
+    <li><button data-target="order">Zamówienie</button></li>
+    <li><button data-target="contact">Kontakt</button></li>
+  </ul>
+</nav>
+
+<header class="hero">
   <h1>MDReDesign&Code</h1>
-  <p>Handmade • Renowacja • Design</p>
-  <p>Strona w budowie.</p>
+  <p class="tagline">Rękodzieło • Renowacja • Design • Kod</p>
+  <div class="hero-buttons">
+    <button data-target="gallery">Zobacz realizacje</button>
+    <button data-target="order">Zamów projekt</button>
+  </div>
+</header>
+
+<section id="gallery" class="section">
+  <h2>Galeria realizacji</h2>
+  <div class="gallery">
+    <div class="placeholder">Zdjęcie 1</div>
+    <div class="placeholder">Zdjęcie 2</div>
+    <div class="placeholder">Zdjęcie 3</div>
+  </div>
+</section>
+
+<section id="about" class="section section-alt">
+  <h2>O mnie</h2>
+  <div class="about">
+    <p><strong>Michał Drwal</strong> – twórca marki MDReDesign&Code.</p>
+    <p>Łączę rękodzieło, renowację i design z technicznym podejściem do projektowania.</p>
+  </div>
+</section>
+
+<section id="order" class="section">
+  <h2>Zamówienie / Zapytanie</h2>
+  <form class="form">
+    <input type="text" placeholder="Imię i nazwisko" required>
+    <input type="email" placeholder="Adres e-mail" required>
+    <textarea placeholder="Opisz projekt" required></textarea>
+    <button type="submit">Wyślij</button>
+  </form>
+</section>
+
+<section id="contact" class="section section-alt">
+  <h2>Kontakt</h2>
+  <p><strong>Telefon:</strong> 793 410 867</p>
+  <p><strong>Email:</strong> kontakt@mdredesign.com.pl</p>
+  <div class="socials">
+    <a href="#">Instagram</a>
+    <a href="#">Facebook</a>
+    <a href="#">YouTube</a>
+  </div>
+</section>
+
+<footer>© MDReDesign&Code</footer>
+
 </body>
 </html>

@@ -1,0 +1,18 @@
+*{margin:0;padding:0;box-sizing:border-box;font-family:Arial,sans-serif}
+body{background:#f4f4f4;color:#222;scroll-behavior:smooth}
+.nav{position:fixed;top:0;width:100%;background:#111;color:#fff;display:flex;justify-content:space-between;padding:10px 30px;z-index:1000}
+.nav ul{display:flex;gap:20px;list-style:none}
+.nav button{background:none;border:none;color:#fff;cursor:pointer;font-weight:bold}
+.hero{height:100vh;display:flex;flex-direction:column;justify-content:center;align-items:center;background:#222;color:#fff;text-align:center;padding-top:60px}
+.tagline{margin:15px 0}
+.hero-buttons button{margin:10px;padding:12px 24px;border:none;background:#fff;color:#111;cursor:pointer}
+.section{padding:100px 10%}
+.section-alt{background:#fff}
+.gallery{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:20px}
+.placeholder{background:#ccc;height:180px;display:flex;align-items:center;justify-content:center;font-weight:bold}
+.about{max-width:700px;margin:auto}
+.form{max-width:500px;margin:auto;display:flex;flex-direction:column;gap:15px}
+.form input,.form textarea{padding:10px}
+.form button{padding:12px;background:#111;color:#fff;border:none;cursor:pointer}
+.socials a{margin-right:15px;text-decoration:none;font-weight:bold}
+footer{text-align:center;padding:20px;background:#111;color:#fff}
