@@ -14,7 +14,7 @@ body{background:#f4f4f4;color:#222;scroll-behavior:smooth}
 .gallery{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));background:#222;color:#fff;gap:20px}
 .placeholder{background:#222;color:#fff;height:180px;display:flex;align-items:center;justify-content:center;font-weight:bold}
 .about{max-width:700px;margin:auto;background:#222;color:#fff;}
-.form{max-width:500px;margin:auto;display:flex;flex-direction:column;gap:15px}
+.form{background:#fff;color:#111;max-width:500px;margin:auto;display:flex;flex-direction:column;gap:15px}
 .form input,.form textarea{padding:10px}
 .form button{padding:12px;background:#111;color:#fff;border:none;cursor:pointer}
 .socials a{margin-right:15px;text-decoration:none;font-weight:bold}
