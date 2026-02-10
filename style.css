@@ -148,7 +148,6 @@ img{max-width:100%;height:auto;display:block}
 	cursor:zoom-in;
 	transition:transform 0.3s ease;
 }
-.gallery-item:hover .carousel-track img{transform:scale(1.02)}
 .carousel-btn{
 	position:absolute;
 	top:50%;
