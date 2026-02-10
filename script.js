@@ -10,17 +10,12 @@ const zoomImage = zoomOverlay ? zoomOverlay.querySelector('img') : null;
 
 if (zoomOverlay && zoomImage) {
   document.querySelectorAll('.zoomable').forEach(img => {
-    img.addEventListener('mouseenter', () => {
+    img.addEventListener('click', () => {
       zoomImage.src = img.src;
       zoomImage.alt = img.alt || 'Powiekszony obraz';
       zoomOverlay.classList.add('is-visible');
       zoomOverlay.setAttribute('aria-hidden', 'false');
     });
-  });
-
-  zoomOverlay.addEventListener('mouseleave', () => {
-    zoomOverlay.classList.remove('is-visible');
-    zoomOverlay.setAttribute('aria-hidden', 'true');
   });
 
   zoomOverlay.addEventListener('click', () => {
