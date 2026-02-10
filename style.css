@@ -21,6 +21,16 @@ body{
 h1,h2,.nav-logo{font-family:"DM Serif Display",serif}
 img{max-width:100%;height:auto;display:block}
 
+.publish-bar{
+	width:100%;
+	background:rgba(23,19,16,0.95);
+	color:#fff;
+	padding:10px 4vw;
+	font-size:0.95rem;
+	letter-spacing:0.3px;
+}
+.publish-date{display:inline-block;color:#fff}
+
 .banner{
 	width:100%;
 	min-height:clamp(280px,40vw,420px);
