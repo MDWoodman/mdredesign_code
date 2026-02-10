@@ -1,0 +1,33 @@
+{
+  "light_section": [
+    {
+      "title": "Renowacja stolika kawowego",
+      "description": "Matowe olejowanie i cieply odcien drewna.",
+      "images": [
+        "images/produkty/produkt_1/sample-1.svg",
+        "images/produkty/produkt_1/sample-2.svg",
+        "images/produkty/produkt_1/sample-3.svg"
+      ]
+    },
+    {
+      "title": "Panel dekoracyjny z drewna",
+      "description": "Naturalne sloje podkreslone swiatlem.",
+      "images": [
+        "images/produkty/produkt_2/sample-1.svg",
+        "images/produkty/produkt_2/sample-2.svg",
+        "images/produkty/produkt_2/sample-3.svg"
+      ]
+    }
+  ],
+  "time_section": [
+    {
+      "title": "Blat po 20 latach",
+      "description": "Usuniete zarysowania, nowa struktura.",
+      "images": [
+        "images/produkty/produkt_3/sample-1.svg",
+        "images/produkty/produkt_3/sample-2.svg",
+        "images/produkty/produkt_3/sample-3.svg"
+      ]
+    }
+  ]
+}
