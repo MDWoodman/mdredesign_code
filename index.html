@@ -11,7 +11,13 @@
   <script defer src="script.js"></script>
 </head>
 <body>
-    <img src="images/baner_strona.png" style="width: 100%;" alt="Baner strony" />
+    <div class="banner">
+      <picture>
+        <source srcset="images/baner.png" media="(min-width: 900px)">
+        <source srcset="images/baner_strona.png" media="(min-width: 600px)">
+        <img class="banner-image" src="images/baner_strona300.png" alt="Baner strony" loading="eager">
+      </picture>
+    </div>
     
     <nav class="nav">
       <div class="nav-logo">MDReDesign</div>
