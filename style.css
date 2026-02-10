@@ -58,6 +58,7 @@ img{max-width:100%;height:auto;display:block}
 	height:100%;
 	object-fit:cover;
 }
+.banner-tile--four img{object-position:right center}
 .banner-tile--one{grid-column:1 / span 5;grid-row:1 / span 4}
 .banner-tile--two{grid-column:6 / span 4;grid-row:1 / span 3}
 .banner-tile--three{grid-column:10 / span 3;grid-row:1 / span 5}
