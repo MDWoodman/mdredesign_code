@@ -244,7 +244,30 @@ img{max-width:100%;height:auto;display:block}
 	border-radius:18px;
 }
 
-.about{max-width:700px;margin:auto;color:var(--ink-soft);line-height:1.6}
+.about{
+	max-width:860px;
+	margin:auto;
+	color:var(--ink-soft);
+	line-height:1.6;
+	display:grid;
+	grid-template-columns:minmax(200px,320px) minmax(0,1fr);
+	gap:28px;
+	align-items:center;
+}
+.about-photo{
+	width:100%;
+	aspect-ratio:3/4;
+	border-radius:18px;
+	background:
+		repeating-linear-gradient(135deg,rgba(30,26,22,0.1) 0,rgba(30,26,22,0.1) 10px,transparent 10px,transparent 20px),
+		linear-gradient(180deg,rgba(215,167,95,0.25),rgba(30,26,22,0.08));
+	box-shadow:var(--shadow);
+}
+.about-text p + p{margin-top:10px}
+
+@media (max-width:900px){
+	.about{grid-template-columns:1fr}
+}
 .form{
 	background:var(--paper-strong);
 	color:var(--ink);

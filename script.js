@@ -5,6 +5,22 @@ document.querySelectorAll('[data-target]').forEach(button=>{
   });
 });
 
+const setPublishDate = () => {
+  const target = document.querySelector('[data-publish-date]');
+  if (!target) {
+    return;
+  }
+  const now = new Date();
+  const formatted = now.toLocaleString('pl-PL', {
+    day: '2-digit',
+    month: '2-digit',
+    year: 'numeric',
+    hour: '2-digit',
+    minute: '2-digit'
+  });
+  target.textContent = `Publikacja: ${formatted}`;
+};
+
 const zoomOverlay = document.getElementById('image-zoom');
 const zoomImage = zoomOverlay ? zoomOverlay.querySelector('img') : null;
 const galleryDataPath = 'gallery.json';
@@ -138,3 +154,4 @@ if (zoomOverlay) {
 }
 
 buildGallery();
+setPublishDate();
