@@ -232,6 +232,13 @@ img{max-width:100%;height:auto;display:block}
 }
 
 .about{max-width:700px;margin:auto;color:var(--ink-soft);line-height:1.6}
+.about-photo{
+	display:flex;
+	justify-content:center;
+	margin-bottom:18px;
+}
+.about-photo img{width:50%;height:auto}
+.about-text{font-size:calc(1rem + 2px);font-style:italic}
 .form{
 	background:var(--paper-strong);
 	color:var(--ink);
