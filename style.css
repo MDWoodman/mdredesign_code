@@ -33,7 +33,7 @@ img{max-width:100%;height:auto;display:block}
 
 .banner{
 	width:100%;
-	min-height:180px;
+	min-height:280px;
 	padding:18px 4vw 22px;
 	overflow:hidden;
 	background:var(--paper-strong);
