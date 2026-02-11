@@ -7,6 +7,8 @@
 	--accent:#d7a75f;
 	--accent-dark:#b47a3a;
 	--shadow:0 18px 45px rgba(25,18,10,0.18);
+	--gallery-gap:28px;
+	--gallery-thumb:240px;
 }
 body{
 	font-family:"Space Grotesk",sans-serif;
@@ -169,8 +171,9 @@ img{max-width:100%;height:auto;display:block}
 
 .gallery{
 	display:grid;
-	grid-template-columns:repeat(auto-fit,minmax(230px,1fr));
-	gap:24px;
+	grid-template-columns:repeat(auto-fit,minmax(var(--gallery-thumb),var(--gallery-thumb)));
+	gap:var(--gallery-gap);
+	justify-content:center;
 }
 .gallery-item{
 	background:var(--paper-strong);
@@ -178,17 +181,23 @@ img{max-width:100%;height:auto;display:block}
 	overflow:hidden;
 	box-shadow:var(--shadow);
 }
-.carousel{position:relative;overflow:hidden}
+.carousel{
+	position:relative;
+	overflow:hidden;
+	aspect-ratio:4/3;
+}
 .carousel-track{
 	display:flex;
 	transition:transform 0.4s ease;
 	will-change:transform;
+	height:100%;
 }
 .carousel-track img{
 	width:100%;
 	min-width:100%;
-	aspect-ratio:4/3;
-	object-fit:cover;
+	height:100%;
+	object-fit:contain;
+	background:var(--paper);
 	cursor:zoom-in;
 	transition:transform 0.3s ease;
 }
