@@ -242,7 +242,7 @@ img{max-width:100%;height:auto;display:block}
 .form{
 	background:var(--paper-strong);
 	color:var(--ink);
-	max-width:520px;
+	max-width:800px;
 	margin:auto;
 	display:flex;
 	flex-direction:column;
@@ -252,6 +252,7 @@ img{max-width:100%;height:auto;display:block}
 	box-shadow:var(--shadow);
 }
 .form input,.form textarea{padding:12px 14px;border:1px solid rgba(30,26,22,0.15);border-radius:10px;font-family:inherit}
+.form input[type="file"]{padding:10px 12px;background:#fff}
 .form textarea{min-height:140px;resize:vertical}
 .form button{padding:12px;background:var(--ink);color:#fff;border:none;cursor:pointer;font-weight:600;letter-spacing:0.4px;border-radius:10px}
 .socials a{margin-right:15px;text-decoration:none;font-weight:600;color:var(--ink)}
