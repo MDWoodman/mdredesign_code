@@ -165,10 +165,12 @@ img{max-width:100%;height:auto;display:block}
 
 .gallery{
 	display:grid;
-	grid-template-columns:repeat(auto-fit,minmax(230px,1fr));
+	grid-template-columns:repeat(auto-fill,280px);
 	gap:24px;
+	justify-content:center;
 }
 .gallery-item{
+	width:280px;
 	background:var(--paper-strong);
 	border-radius:18px;
 	overflow:hidden;
