@@ -164,17 +164,37 @@ img{max-width:100%;height:auto;display:block}
 }
 
 .gallery{
-	display:grid;
-	grid-template-columns:repeat(auto-fill,400px);
+	display:flex;
 	gap:24px;
-	justify-content:center;
+	overflow-x:auto;
+	overflow-y:hidden;
+	padding:12px 0;
+	scroll-snap-type:x mandatory;
+	scroll-behavior:smooth;
+	-webkit-overflow-scrolling:touch;
+}
+.gallery::-webkit-scrollbar{
+	height:8px;
+}
+.gallery::-webkit-scrollbar-track{
+	background:rgba(30,26,22,0.1);
+	border-radius:4px;
+}
+.gallery::-webkit-scrollbar-thumb{
+	background:var(--accent);
+	border-radius:4px;
+}
+.gallery::-webkit-scrollbar-thumb:hover{
+	background:var(--accent-dark);
 }
 .gallery-item{
 	width:400px;
+	min-width:400px;
 	background:var(--paper-strong);
 	border-radius:18px;
 	overflow:hidden;
 	box-shadow:var(--shadow);
+	scroll-snap-align:start;
 }
 .carousel{position:relative;overflow:hidden}
 .carousel-track{
