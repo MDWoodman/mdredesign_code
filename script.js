@@ -77,13 +77,13 @@ const buildGalleryItem = product => {
   prev.className = 'carousel-btn prev';
   prev.type = 'button';
   prev.setAttribute('aria-label', 'Poprzedni obraz');
-  prev.textContent = '<';
+  prev.textContent = '‹';
 
   const next = document.createElement('button');
   next.className = 'carousel-btn next';
   next.type = 'button';
   next.setAttribute('aria-label', 'Nastepny obraz');
-  next.textContent = '>';
+  next.textContent = '›';
 
   const track = document.createElement('div');
   track.className = 'carousel-track';
