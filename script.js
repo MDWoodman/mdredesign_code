@@ -73,6 +73,14 @@ const buildGalleryItem = product => {
   carousel.className = 'carousel';
   carousel.setAttribute('data-carousel', '');
 
+  if (product.status) {
+    const statusBadge = document.createElement('div');
+    statusBadge.className = 'product-status';
+    statusBadge.classList.add(product.status === 'dostępny' ? 'status-available' : 'status-unavailable');
+    statusBadge.textContent = product.status === 'dostępny' ? '✓ Dostępny' : '✕ Niedostępny';
+    carousel.appendChild(statusBadge);
+  }
+
   const prev = document.createElement('button');
   prev.className = 'carousel-btn prev';
   prev.type = 'button';
@@ -116,6 +124,29 @@ const buildGalleryItem = product => {
       tagsContainer.appendChild(tagBadge);
     });
     figcaption.appendChild(tagsContainer);
+  }
+  if (product.beforeImages && Array.isArray(product.beforeImages) && product.beforeImages.length > 0) {
+    const beforeSection = document.createElement('div');
+    beforeSection.className = 'before-renovation';
+    
+    const beforeTitle = document.createElement('span');
+    beforeTitle.className = 'before-renovation-title';
+    beforeTitle.textContent = '📸 Przed renowacją:';
+    beforeSection.appendChild(beforeTitle);
+    
+    const beforeGallery = document.createElement('div');
+    beforeGallery.className = 'before-images';
+    product.beforeImages.forEach((src, idx) => {
+      const img = document.createElement('img');
+      img.className = 'before-image zoomable';
+      img.src = src;
+      img.alt = `${product.title} - przed renowacją ${idx + 1}`;
+      img.loading = 'lazy';
+      bindZoom(img);
+      beforeGallery.appendChild(img);
+    });
+    beforeSection.appendChild(beforeGallery);
+    figcaption.appendChild(beforeSection);
   }
   if (product.description) {
     const desc = document.createElement('span');
