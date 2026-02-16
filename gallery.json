@@ -5,8 +5,11 @@
       "description": "Unikatowa lampa ścienna wykonana w jednym egzemplarzu, łącząca autentyczną antyczną latarenkę z autorską kompozycją z drewna i naturalnych kryształów. Odrdzewiona i zabezpieczona latarenka zachowała swój industrialno-vintage charakter, a sosnowa podstawa została ręcznie oszlifowana, bejcowana i wykończona politurą. Dekoracyjna struktura powstała z kryształów siarczanu miedzi, soli oraz sznurka jutowego, tworząc niepowtarzalny układ inspirowany naturą. Lampa emituje ciepłe, nastrojowe światło i doskonale sprawdzi się we wnętrzach loftowych, rustykalnych i vintage jako designerski, kolekcjonerski akcent z historią."
       ,
       "status": "dostępny",
-      "tags": ["handmade", "vintage", "renowacja"],
-      "beforeImages": [],
+      "tags": ["vintage", "renowacja"],
+      "beforeImages": [
+        "images/light_section/produkt_1/1_old.jpg",
+        "images/light_section/produkt_1/2_old.jpg"
+      ],
       "images": [
         "images/light_section/produkt_1/1.jpg",
         "images/light_section/produkt_1/2.jpg",
@@ -17,8 +20,8 @@
       "title": "🌿 Unikatowa lampa stołowa z naturalnego drewna i kamienia",
       "description": "Unikatowa lampa stołowa wykonana ręcznie z naturalnej gałęzi, osadzona na stabilnej podstawie z kamienia i wykończona dekoracyjnym oplotem z grubego sznurka jutowego. Surowa forma drewna, organiczny charakter oraz widoczna żarówka typu Edison LED tworzą ciepły, nastrojowy klimat idealny do wnętrz rustykalnych, boho i ekologicznych. Każdy egzemplarz jest niepowtarzalny, a naturalne różnice w strukturze drewna i kamienia podkreślają autentyczność rękodzieła. Lampa jest gotowa do podłączenia i stanowi wyjątkowy, artystyczny akcent do salonu, sypialni lub pracowni."
       ,
-      "status": "niedostępny",
-      "tags": ["handmade", "vintage"],
+      "status": "dostępny",
+      "tags": ["handmade"],
       "images": [
         "images/light_section/produkt_2/1.jpg",
         "images/light_section/produkt_2/2.jpg",
@@ -33,8 +36,8 @@
       "title": "Lampa wisząca vintage z ozdobnym szklanym kloszem – rękodzieło w stylu rustykalno-loftowym",
       "description": "Niepowtarzalna lampa wisząca w stylu vintage – ręcznie wykonana dekoracyjna lampa sufitowa o wyjątkowym charakterze. Połączenie ozdobnego szklanego klosza z metalową, ręcznie wykończoną konstrukcją oraz naturalnego sznura nadaje jej rustykalny i loftowy klimat. Lampa zachowana jest w dobrym stanie wizualnym, szkło bez uszkodzeń, elementy metalowe stabilne, elektryka sprawna. Szklany klosz pięknie rozprasza światło, tworząc ciepłą i nastrojową atmosferę w salonie, jadalni, korytarzu czy sypialni. Standardowe mocowanie żarówki (np. E27) pozwala zastosować dekoracyjną żarówkę typu Edison dla podkreślenia efektu vintage. Idealna propozycja dla miłośników stylowych, charakterystycznych wnętrz oraz unikatowych elementów z duszą.",
       "status": "dostępny",
-      "tags": ["handmade", "vintage", "renowacja"],
-      "beforeImages": [],
+      "tags": ["handmade", "vintage"],
+      "beforeImages": ["images/light_section/produkt_3/1_old.jpg"],
       "images": [
         "images/light_section/produkt_3/1.jpg",
         "images/light_section/produkt_3/2.jpg",
@@ -86,7 +89,7 @@
     {
       "title": "Naturalny Zegar Ścienny z Kryształami – Sosna & Minerały",
       "description": "Ręcznie wykonany zegar ścienny z bejcowanych i lakierowanych krążków sosnowych, ozdobiony naturalnymi kryształami soli himalajskiej, siarczanu miedzi oraz soli gruboziarnistej. Elementy dekoracyjne wykończone barwionym sznurkiem jutowym nadają kompozycji unikalny, artystyczny charakter. Połączenie drewna i minerałów tworzy niepowtarzalny efekt naturalnej elegancji, idealny do wnętrz w stylu rustykalnym, boho lub eko.",
-      "status": "niedostępny",
+      "status": "dostępny",
       "tags": ["handmade"],
       "images": [
         "images/time_section/produkt_1/1.jpg",
