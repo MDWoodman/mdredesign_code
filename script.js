@@ -106,6 +106,17 @@ const buildGalleryItem = product => {
     title.textContent = product.title;
     figcaption.appendChild(title);
   }
+  if (product.tags && Array.isArray(product.tags) && product.tags.length > 0) {
+    const tagsContainer = document.createElement('div');
+    tagsContainer.className = 'product-tags';
+    product.tags.forEach(tag => {
+      const tagBadge = document.createElement('span');
+      tagBadge.className = 'product-tag';
+      tagBadge.textContent = tag;
+      tagsContainer.appendChild(tagBadge);
+    });
+    figcaption.appendChild(tagsContainer);
+  }
   if (product.description) {
     const desc = document.createElement('span');
     desc.className = 'gallery-desc';
@@ -124,7 +135,7 @@ const buildGallery = async () => {
     const response = await fetch(galleryDataPath, { cache: 'no-store' });
     if (!response.ok) {
       console.warn('Brak pliku gallery.json.');
-      return;
+      return Promise.resolve();
     }
     const data = await response.json();
 
@@ -153,5 +164,25 @@ if (zoomOverlay) {
   });
 }
 
-buildGallery();
+const initGalleryScrollButtons = () => {
+  document.querySelectorAll('.gallery-scroll-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const sectionKey = btn.getAttribute('data-gallery-nav');
+      const gallery = document.querySelector(`[data-gallery="${sectionKey}"]`);
+      if (!gallery) return;
+      
+      const scrollAmount = 424;
+      const isPrev = btn.classList.contains('gallery-scroll-prev');
+      
+      gallery.scrollBy({
+        left: isPrev ? -scrollAmount : scrollAmount,
+        behavior: 'smooth'
+      });
+    });
+  });
+};
+
+buildGallery().then(() => {
+  initGalleryScrollButtons();
+});
 setPublishDate();

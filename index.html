@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>MDReDesign</title>
+  <link rel="icon" type="image/png" href="images/stempel_logo.png">
   <link rel="stylesheet" href="style.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -49,11 +50,19 @@
       </div>
       <div id="gallery-light" class="gallery-section" data-section="light_section">
         <h3>Światło</h3>
-        <div class="gallery" data-gallery="light_section"></div>
+        <div class="gallery-wrapper">
+          <button class="gallery-scroll-btn gallery-scroll-prev" data-gallery-nav="light_section" aria-label="Poprzednie produkty">‹</button>
+          <div class="gallery" data-gallery="light_section"></div>
+          <button class="gallery-scroll-btn gallery-scroll-next" data-gallery-nav="light_section" aria-label="Następne produkty">›</button>
+        </div>
       </div>
       <div id="gallery-time" class="gallery-section" data-section="time_section">
         <h3>Czas</h3>
-        <div class="gallery" data-gallery="time_section"></div>
+        <div class="gallery-wrapper">
+          <button class="gallery-scroll-btn gallery-scroll-prev" data-gallery-nav="time_section" aria-label="Poprzednie produkty">‹</button>
+          <div class="gallery" data-gallery="time_section"></div>
+          <button class="gallery-scroll-btn gallery-scroll-next" data-gallery-nav="time_section" aria-label="Następne produkty">›</button>
+        </div>
       </div>
     </section>
 
