@@ -101,5 +101,41 @@
         "images/time_section/produkt_1/7.jpg"
       ]
     }
+  ],
+  "furniture_section": [
+{
+      "title": "Stołek drewniany w stylu orientalnym z tapicerowanym siedziskiem",
+      "description": "Ręcznie odnowiony stołek drewniany o unikalnej, dekoracyjnej formie. Konstrukcja została wyczyszczona, zabezpieczona i wykończona w ciemnym odcieniu, podkreślając naturalne usłojenie drewna. Siedzisko obszyte zieloną tapicerką z ręcznie malowanymi złotymi ornamentami nadaje mu orientalnego charakteru i wyjątkowego stylu. Całość uzupełniają ozdobne detale z liny jutowej oraz metalowe elementy dekoracyjne. Stołek może pełnić funkcję siedziska, podnóżka lub oryginalnego elementu dekoracyjnego we wnętrzach w stylu rustykalnym, kolonialnym lub boho. Unikatowy egzemplarz po renowacji – gotowy do użytkowania." ,
+      "status": "dostępny",
+      "tags": ["renowacja"],
+      "beforeImages": ["images/furniture_section/produkt_1/1_old.jpg" , "images/furniture_section/produkt_1/2_old.jpg"],
+      "images": [
+        "images/furniture_section/produkt_1/1.jpg",
+        "images/furniture_section/produkt_1/2.jpg",
+        "images/furniture_section/produkt_1/3.jpg",
+        "images/furniture_section/produkt_1/4.jpg",
+        "images/furniture_section/produkt_1/5.jpg"
+       
+      ]
+    }
+	,
+    {
+      "title": "Drewniana szafka z 1947 roku – rustykalna po renowacji | lite drewno | unikat",
+      "description": "Unikatowa drewniana szafka z 1947 roku po starannej renowacji, wykonana z litego drewna z pięknie wyeksponowanym usłojeniem podkreślonym bejcą i zabezpieczonym trwałym lakierem. Mebel posiada praktyczną szufladę z ozdobnym uchwytem oraz zamykaną szafkę z półką wewnątrz. Wnętrze zostało wykończone dekoracyjną strukturą, nadającą całości artystyczny i niepowtarzalny charakter. Ponad 75-letni mebel z historią, który po odnowieniu zyskał nowe życie, idealny jako stolik nocny, szafka pomocnicza lub stylowy element wnętrza w klimacie rustykalnym i vintage.",
+      "status": "sprzedany",
+      "tags": ["renowacja"],
+      "beforeImages": ["images/furniture_section/produkt_2/1_old.jpg" , "images/furniture_section/produkt_2/2_old.jpg"],
+      "images": [
+        "images/furniture_section/produkt_2/1.jpg",
+        "images/furniture_section/produkt_2/2.jpg",
+        "images/furniture_section/produkt_2/3.jpg",
+        "images/furniture_section/produkt_2/4.jpg",
+        "images/furniture_section/produkt_2/5.jpg",
+        "images/furniture_section/produkt_2/6.jpg"
+       
+      ]
+    }
+
+
   ]
 }

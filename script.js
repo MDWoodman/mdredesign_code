@@ -76,8 +76,16 @@ const buildGalleryItem = product => {
   if (product.status) {
     const statusBadge = document.createElement('div');
     statusBadge.className = 'product-status';
-    statusBadge.classList.add(product.status === 'dostępny' ? 'status-available' : 'status-unavailable');
-    statusBadge.textContent = product.status === 'dostępny' ? '✓ Dostępny' : '✕ Niedostępny';
+    if (product.status === 'dostępny') {
+      statusBadge.classList.add('status-available');
+      statusBadge.textContent = '✓ Dostępny';
+    } else if (product.status === 'sprzedany') {
+      statusBadge.classList.add('status-sold');
+      statusBadge.textContent = '✕ Sprzedany';
+    } else {
+      statusBadge.classList.add('status-unavailable');
+      statusBadge.textContent = '✕ Niedostępny';
+    }
     carousel.appendChild(statusBadge);
   }
 
