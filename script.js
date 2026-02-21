@@ -24,6 +24,7 @@ const setPublishDate = () => {
 const zoomOverlay = document.getElementById('image-zoom');
 const zoomImage = zoomOverlay ? zoomOverlay.querySelector('img') : null;
 const galleryDataPath = 'gallery.json';
+const catalogsDataPath = 'katalogi.php';
 
 const bindZoom = img => {
   if (!zoomOverlay || !zoomImage) {
@@ -202,6 +203,63 @@ const buildGallery = async () => {
   }
 };
 
+const buildCatalogs = async () => {
+  const container = document.querySelector('[data-catalogs]');
+  if (!container) {
+    return;
+  }
+
+  try {
+    const response = await fetch(catalogsDataPath, { cache: 'no-store' });
+    if (!response.ok) {
+      throw new Error('Nie udalo sie pobrac listy katalogow.');
+    }
+
+    const data = await response.json();
+    const files = Array.isArray(data.files) ? data.files : [];
+
+    container.innerHTML = '';
+
+    if (files.length === 0) {
+      const empty = document.createElement('p');
+      empty.className = 'catalogs-status';
+      empty.textContent = 'Brak katalogow PDF do pobrania.';
+      container.appendChild(empty);
+      return;
+    }
+
+    const list = document.createElement('ul');
+    list.className = 'catalogs-list';
+
+    files.forEach(file => {
+      if (!file || !file.url || !file.name) {
+        return;
+      }
+
+      const item = document.createElement('li');
+      item.className = 'catalogs-item';
+
+      const link = document.createElement('a');
+      link.className = 'catalog-link';
+      link.href = file.url;
+      link.textContent = file.name;
+      link.setAttribute('download', file.name);
+
+      item.appendChild(link);
+      list.appendChild(item);
+    });
+
+    container.appendChild(list);
+  } catch (error) {
+    container.innerHTML = '';
+    const failed = document.createElement('p');
+    failed.className = 'catalogs-status';
+    failed.textContent = 'Nie udalo sie wczytac katalogow PDF.';
+    container.appendChild(failed);
+    console.warn('Nie udalo sie wczytac katalogow PDF.', error);
+  }
+};
+
 if (zoomOverlay) {
   zoomOverlay.addEventListener('click', () => {
     zoomOverlay.classList.remove('is-visible');
@@ -230,4 +288,5 @@ const initGalleryScrollButtons = () => {
 buildGallery().then(() => {
   initGalleryScrollButtons();
 });
+buildCatalogs();
 setPublishDate();
