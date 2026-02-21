@@ -351,6 +351,17 @@ img{max-width:100%;height:auto;display:block}
 	box-shadow:0 6px 16px rgba(30,26,22,0.25);
 }
 .gallery-desc{display:block;margin-top:6px;font-size:0.95rem;line-height:1.45}
+.gallery-price{
+	display:inline-block;
+	margin-top:10px;
+	padding:5px 10px;
+	font-size:0.9rem;
+	font-weight:700;
+	color:var(--ink);
+	background:rgba(215,167,95,0.22);
+	border:1px solid rgba(180,122,58,0.35);
+	border-radius:10px;
+}
 
 .image-zoom{
 	position:fixed;
@@ -469,5 +480,9 @@ footer .publish-date{display:block;margin-top:6px;color:#fff;font-size:0.9rem;op
 	.gallery-desc {
 		font-size: 0.9rem;
 		line-height: 1.5;
+	}
+
+	.gallery-price {
+		font-size: 0.85rem;
 	}
 }

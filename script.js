@@ -162,6 +162,12 @@ const buildGalleryItem = product => {
     desc.textContent = product.description;
     figcaption.appendChild(desc);
   }
+  if (product.price) {
+    const price = document.createElement('span');
+    price.className = 'gallery-price';
+    price.textContent = `Cena: ${product.price}`;
+    figcaption.appendChild(price);
+  }
 
   figure.append(carousel, figcaption);
   initCarousel(carousel);
