@@ -24,7 +24,7 @@ const setPublishDate = () => {
 const zoomOverlay = document.getElementById('image-zoom');
 const zoomImage = zoomOverlay ? zoomOverlay.querySelector('img') : null;
 const galleryDataPath = 'gallery.json';
-const catalogsDataPath = 'katalogi.php';
+const catalogsDataPaths = ['katalogi.json', 'katalogi.php'];
 
 const bindZoom = img => {
   if (!zoomOverlay || !zoomImage) {
@@ -203,6 +203,27 @@ const buildGallery = async () => {
   }
 };
 
+const fetchCatalogFiles = async () => {
+  for (const path of catalogsDataPaths) {
+    try {
+      const response = await fetch(path, { cache: 'no-store' });
+      if (!response.ok) {
+        continue;
+      }
+
+      const data = await response.json();
+      const files = Array.isArray(data.files) ? data.files : [];
+      if (files.length > 0) {
+        return files;
+      }
+    } catch (error) {
+      console.warn(`Nie udalo sie wczytac danych katalogow z ${path}.`, error);
+    }
+  }
+
+  return [];
+};
+
 const buildCatalogs = async () => {
   const container = document.querySelector('[data-catalogs]');
   if (!container) {
@@ -210,13 +231,7 @@ const buildCatalogs = async () => {
   }
 
   try {
-    const response = await fetch(catalogsDataPath, { cache: 'no-store' });
-    if (!response.ok) {
-      throw new Error('Nie udalo sie pobrac listy katalogow.');
-    }
-
-    const data = await response.json();
-    const files = Array.isArray(data.files) ? data.files : [];
+    const files = await fetchCatalogFiles();
 
     container.innerHTML = '';
 
