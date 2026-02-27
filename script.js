@@ -5,6 +5,36 @@ document.querySelectorAll('[data-target]').forEach(button=>{
   });
 });
 
+const initMobileNav = () => {
+  const nav = document.querySelector('.nav');
+  if (!nav) {
+    return;
+  }
+
+  const toggle = nav.querySelector('.nav-toggle');
+  const navItems = nav.querySelectorAll('ul [data-target]');
+
+  if (!toggle) {
+    return;
+  }
+
+  toggle.addEventListener('click', () => {
+    const willOpen = !nav.classList.contains('nav-open');
+    nav.classList.toggle('nav-open', willOpen);
+    toggle.setAttribute('aria-expanded', String(willOpen));
+  });
+
+  navItems.forEach(item => {
+    item.addEventListener('click', () => {
+      if (!window.matchMedia('(max-width: 768px)').matches) {
+        return;
+      }
+      nav.classList.remove('nav-open');
+      toggle.setAttribute('aria-expanded', 'false');
+    });
+  });
+};
+
 const setPublishDate = () => {
   const target = document.querySelector('[data-publish-date]');
   if (!target) {
@@ -21,9 +51,32 @@ const setPublishDate = () => {
   target.textContent = `Publikacja: ${formatted}`;
 };
 
+const setVisitCount = () => {
+  const target = document.querySelector('[data-visit-count]');
+  if (!target) {
+    return;
+  }
+
+  const key = 'mdredesign_visit_count';
+  let visits = 0;
+
+  try {
+    const stored = Number.parseInt(localStorage.getItem(key) || '0', 10);
+    visits = Number.isNaN(stored) || stored < 0 ? 0 : stored;
+    visits += 1;
+    localStorage.setItem(key, String(visits));
+  } catch (error) {
+    visits = 1;
+    console.warn('Nie udalo sie zapisac licznika wejsc.', error);
+  }
+
+  target.textContent = `Liczba wejść: ${visits}`;
+};
+
 const zoomOverlay = document.getElementById('image-zoom');
 const zoomImage = zoomOverlay ? zoomOverlay.querySelector('img') : null;
 const galleryDataPath = 'gallery.json';
+const arrangementsDataPath = 'aranzacje.json'; 
 const catalogsDataPaths = ['katalogi.json', 'katalogi.php'];
 
 const bindZoom = img => {
@@ -170,6 +223,34 @@ const buildGalleryItem = product => {
     figcaption.appendChild(price);
   }
 
+  const allegroUrl = typeof product.allegroUrl === 'string'
+    ? product.allegroUrl.trim()
+    : typeof product.allegroLink === 'string'
+      ? product.allegroLink.trim()
+      : typeof product.allegro === 'string'
+        ? product.allegro.trim()
+        : '';
+
+  if (allegroUrl) {
+    const allegroLink = document.createElement('a');
+    allegroLink.className = 'allegro-link';
+    allegroLink.href = allegroUrl;
+    allegroLink.target = '_blank';
+    allegroLink.rel = 'noopener noreferrer';
+    allegroLink.setAttribute('aria-label', 'Przejdź do oferty Allegro');
+
+    const allegroIcon = document.createElement('span');
+    allegroIcon.className = 'allegro-icon';
+    allegroIcon.setAttribute('aria-hidden', 'true');
+    allegroIcon.textContent = 'a';
+
+    const allegroText = document.createElement('span');
+    allegroText.textContent = 'Allegro';
+
+    allegroLink.append(allegroIcon, allegroText);
+    figcaption.appendChild(allegroLink);
+  }
+
   figure.append(carousel, figcaption);
   initCarousel(carousel);
 
@@ -275,6 +356,93 @@ const buildCatalogs = async () => {
   }
 };
 
+const buildArrangementItem = arrangement => {
+  const article = document.createElement('article');
+  article.className = 'arrangement-item';
+
+  const image = document.createElement('img');
+  image.className = 'arrangement-image zoomable';
+  image.src = arrangement.image;
+  image.alt = arrangement.title || 'Przykładowa aranżacja';
+  image.loading = 'lazy';
+  bindZoom(image);
+
+  const content = document.createElement('div');
+  content.className = 'arrangement-content';
+
+  const title = document.createElement('h3');
+  title.className = 'arrangement-title';
+  title.textContent = arrangement.title || 'Przykładowa aranżacja';
+
+  const desc = document.createElement('p');
+  desc.className = 'arrangement-desc';
+  desc.textContent = arrangement.description || '';
+
+  content.append(title, desc);
+  article.append(image, content);
+  return article;
+};
+
+const buildArrangements = async () => {
+  const container = document.querySelector('[data-arrangements]');
+  if (!container) {
+    return;
+  }
+
+  try {
+    const response = await fetch(arrangementsDataPath, { cache: 'no-store' });
+    if (!response.ok) {
+      container.innerHTML = '';
+      const empty = document.createElement('p');
+      empty.className = 'arrangements-status';
+      empty.textContent = 'Brak aranżacji do wyświetlenia.';
+      container.appendChild(empty);
+      return;
+    }
+
+    const data = await response.json();
+    const items = Array.isArray(data.items) ? data.items : [];
+    const enabled = data.enabled !== false;
+
+    container.innerHTML = '';
+
+    if (!enabled || items.length === 0) {
+      const empty = document.createElement('p');
+      empty.className = 'arrangements-status';
+      empty.textContent = 'Brak aranżacji do wyświetlenia.';
+      container.appendChild(empty);
+      return;
+    }
+
+    const grid = document.createElement('div');
+    grid.className = 'arrangements-grid';
+
+    items.forEach(item => {
+      if (!item || item.visible === false || !item.image) {
+        return;
+      }
+      grid.appendChild(buildArrangementItem(item));
+    });
+
+    if (!grid.hasChildNodes()) {
+      const empty = document.createElement('p');
+      empty.className = 'arrangements-status';
+      empty.textContent = 'Brak aranżacji do wyświetlenia.';
+      container.appendChild(empty);
+      return;
+    }
+
+    container.appendChild(grid);
+  } catch (error) {
+    container.innerHTML = '';
+    const failed = document.createElement('p');
+    failed.className = 'arrangements-status';
+    failed.textContent = 'Nie udało się wczytać aranżacji.';
+    container.appendChild(failed);
+    console.warn('Nie udalo sie wczytac aranżacji.', error);
+  }
+};
+
 if (zoomOverlay) {
   zoomOverlay.addEventListener('click', () => {
     zoomOverlay.classList.remove('is-visible');
@@ -303,5 +471,8 @@ const initGalleryScrollButtons = () => {
 buildGallery().then(() => {
   initGalleryScrollButtons();
 });
+buildArrangements();
 buildCatalogs();
+setVisitCount();
 setPublishDate();
+initMobileNav();

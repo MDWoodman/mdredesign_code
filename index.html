@@ -21,12 +21,18 @@
     
     <nav class="nav">
       <div class="nav-logo">MDReDesign-Michał Drwal</div>
-      <ul>
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="main-nav-list" aria-label="Otwórz menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <ul id="main-nav-list">
         <li><button data-target="home">Home</button></li>
         <li><button data-target="gallery">Galeria</button></li>
+        <li><button data-target="arrangements">Przykładowe aranżacje</button></li>
         <li><button data-target="about">O mnie</button></li>
         <li><button data-target="catalogs">Katalogi PDF</button></li>
-        <li><button data-target="order">Zamówienie</button></li>
+        <li><button data-target="order">Napisz do mnie</button></li>
         <li><button data-target="contact">Kontakt</button></li>
       </ul>
     </nav>
@@ -36,10 +42,10 @@
       <div class="hero-logo" aria-hidden="true">
         <img src="images/stempel_logo.png" alt="">
       </div>
-      <p class="tagline">Rękodzieło • Renowacja • Design</p>
+      <p class="tagline">Nie projektuję. Wchodzę w proces. Z niczego rodzi się Coś.</p>
       <div class="hero-buttons">
         <button data-target="gallery">Zobacz realizacje</button>
-        <button data-target="order">Zamów projekt</button>
+        <button data-target="order">Zapytaj , Zaproponuj , Zamów</button>
       </div>
     </header>
 
@@ -73,6 +79,13 @@
           <div class="gallery" data-gallery="furniture_section"></div>
           <button class="gallery-scroll-btn gallery-scroll-next" data-gallery-nav="furniture_section" aria-label="Następne produkty">›</button>
         </div>
+      </div>
+    </section>
+
+    <section id="arrangements" class="section section-alt">
+      <h2>Przykładowe aranżacje</h2>
+      <div class="arrangements" data-arrangements>
+        <p class="arrangements-status">Ładowanie aranżacji...</p>
       </div>
     </section>
 
@@ -128,6 +141,7 @@ Moje projekty to połączenie stylu vintage, rustykalnego i industrialnego – p
 
     <footer>
       <span>© MDReDesign</span>
+      <span class="visit-count" data-visit-count></span>
       <span class="publish-date" data-publish-date></span>
     </footer>
 
