@@ -84,8 +84,16 @@ a{color:var(--accent)}
 	font-weight:700
 }
 .cta{padding:46px 0 74px}
-.cta-box{display:flex;justify-content:space-between;gap:20px;align-items:center;flex-wrap:wrap;background:linear-gradient(130deg,rgba(122,162,255,.2),rgba(94,234,212,.14));border:1px solid var(--border);border-radius:18px;padding:24px}
-.cta p{color:var(--muted)}
+.cta-box{display:flex;flex-direction:column;justify-content:center;align-items:center;gap:24px;background:linear-gradient(130deg,rgba(122,162,255,.2),rgba(94,234,212,.14));border:1px solid var(--border);border-radius:18px;padding:24px}
+.cta-box h2{font-size:clamp(1.5rem,3vw,2.2rem);max-width:520px;line-height:1.2;text-align:center}
+.contact-details{text-align:center}
+.contact-details p{color:var(--text)}
+.contact-details p + p{margin-top:4px}
+.contact-details .contact-mail-fallback{font-size:.92rem;color:var(--muted)}
+.form{background:var(--text);color:var(--bg);min-width:min(100%,540px);max-width:540px;display:flex;flex-direction:column;gap:12px;padding:16px;border-radius:14px;box-shadow:0 16px 30px rgba(0,0,0,.22)}
+.form.form-link p{color:var(--bg);font-size:.92rem}
+.form-button{display:inline-flex;align-items:center;justify-content:center;width:100%;padding:10px 16px;border-radius:8px;background:var(--bg);color:var(--text);text-decoration:none;font-weight:700;border:1px solid transparent;transition:filter .2s ease,transform .2s ease}
+.form-button:hover{filter:brightness(1.08);transform:translateY(-1px)}
 .footer{border-top:1px solid var(--border);padding:24px 0;color:var(--muted);font-size:.95rem}
 #offer-list .card{transition:transform .2s ease,border-color .2s ease}
 #offer-list .card:hover{transform:translateY(-3px);border-color:rgba(94,234,212,.45)}
@@ -97,5 +105,6 @@ a{color:var(--accent)}
 	.menu{display:none;position:absolute;top:72px;right:24px;background:var(--panel);border:1px solid var(--border);border-radius:12px;padding:12px;min-width:220px;flex-direction:column}
 	.menu.open{display:flex}
 	.grid-3,.grid-2{grid-template-columns:1fr}
+	.form{min-width:100%}
 	.hero{padding-top:72px}
 }
