@@ -30,21 +30,48 @@ a{color:var(--accent)}
 .nav-inner{display:flex;align-items:center;justify-content:space-between;min-height:72px}
 .brand{font-weight:700;letter-spacing:.4px;color:var(--text);text-decoration:none}
 .brand span{color:var(--accent)}
-.nav-toggle{display:none;background:transparent;border:1px solid var(--border);color:var(--text);padding:8px 12px;border-radius:10px}
-.menu{display:flex;gap:18px;list-style:none}
+.nav-toggle{
+	display:none;
+	justify-content:center;
+	align-items:center;
+	background:transparent;
+	border:1px solid var(--border);
+	color:var(--text);
+	padding:8px 16px;
+	border-radius:10px;
+	font-weight:700;
+	letter-spacing:.3px;
+	min-width:92px;
+}
+.menu{display:flex;gap:18px;list-style:none;margin-left:auto}
 .menu a{color:var(--muted);text-decoration:none;font-weight:500}
 .menu a:hover{color:var(--text)}
-.menu .menu-home-link{
+.menu-home-link{
 	color:#061226;
 	background:linear-gradient(135deg,var(--accent),var(--accent-2));
 	padding:8px 12px;
 	border-radius:10px;
 	font-weight:700;
 	border:1px solid transparent;
+	text-decoration:none;
+	display:inline-flex;
+	align-items:center;
 }
-.menu .menu-home-link:hover{
+.menu-home-link:hover{
 	color:#061226;
 	filter:brightness(1.05);
+}
+
+.quick-home-bar{
+	background:rgba(11,16,32,.72);
+	border-bottom:1px solid var(--border);
+}
+
+.quick-home-inner{
+	min-height:52px;
+	display:flex;
+	align-items:center;
+	justify-content:flex-end;
 }
 .hero{padding:92px 0 74px}
 .eyebrow{display:inline-block;font-size:.85rem;font-weight:700;color:var(--ok);border:1px solid rgba(52,211,153,.35);padding:6px 12px;border-radius:999px;background:rgba(52,211,153,.1)}
@@ -113,9 +140,27 @@ a{color:var(--accent)}
 	.grid-3{grid-template-columns:1fr 1fr}
 }
 @media (max-width:760px){
-	.nav-toggle{display:block}
-	.menu{display:none;position:absolute;top:72px;right:24px;background:var(--panel);border:1px solid var(--border);border-radius:12px;padding:12px;min-width:220px;flex-direction:column}
+	.nav-inner{flex-wrap:wrap;gap:8px}
+	.nav-toggle{
+		display:inline-flex;
+		order:3;
+		flex:0 0 100%;
+		margin:4px auto 0;
+	}
+	.menu{
+		display:none;
+		position:static;
+		background:var(--panel);
+		border:1px solid var(--border);
+		border-radius:12px;
+		padding:12px;
+		width:100%;
+		margin-top:10px;
+		flex-direction:column;
+		order:4;
+	}
 	.menu.open{display:flex}
+	.quick-home-inner{justify-content:center}
 	.grid-3,.grid-2{grid-template-columns:1fr}
 	.form{min-width:100%}
 	.hero{padding-top:72px}

@@ -21,10 +21,9 @@
    
     <nav class="nav">
       <div class="nav-logo">MDReDesign-Michał Drwal</div>
-      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="main-nav-list" aria-label="Otwórz menu">
-        <span></span>
-        <span></span>
-        <span></span>
+      
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="main-nav-list" aria-label="Menu">
+        Menu
       </button>
       <ul id="main-nav-list">
         <li><button data-target="home">Home</button></li>
@@ -34,9 +33,12 @@
         <li><button data-target="catalogs">Katalogi PDF</button></li>
         <li><button data-target="order">Napisz do mnie</button></li>
         <li><button data-target="contact">Kontakt</button></li>
-        <li><a href="programowanie.html" class="nav-external-link">Strefa programowanie</a></li>
       </ul>
     </nav>
+
+   <div class="quick-nav-bar">
+             <a href="programowanie.html" class="quick-nav-link">Strefa programowania</a>
+       </div>
 
      <div class="hero-subtitle">
       <p>Tworzę przedmioty, które nadają przestrzeni duszę</p>
@@ -97,6 +99,12 @@
     </div>
     <section id="gallery" class="section">
       <h2>Galeria realizacji</h2>
+      <div class="gallery-filter-nav" data-gallery-filters>
+        <button type="button" data-gallery-filter="renowacje">Renowacje</button>
+        <button type="button" data-gallery-filter="nowe">Nowe</button>
+        <button type="button" data-gallery-filter="przerobione">Przerobione</button>
+        <button type="button" data-gallery-filter="all" class="is-active" aria-pressed="true">Wszystkie</button>
+      </div>
       <div class="gallery-nav"> 
         <button data-target="gallery-light">Światło</button>
         <button data-target="gallery-time">Czas</button>
@@ -177,6 +185,7 @@ Moje projekty to połączenie stylu vintage, rustykalnego i industrialnego – p
       <p><strong>Telefon:</strong><a href="tel:+48793410867">793 410 867</a> | <a href="tel:+48887820824">887 820 824</a></p>
       <p><strong>Email:</strong> <a href="mailto:drwal.michal@gmail.com">drwal.michal@gmail.com</a>
       <a href="mailto:kontakt@mdredesign.com.pl">kontakt@mdredesign.com.pl</a></p>
+      <p><strong>Lokalizacja:</strong> woj. lubelskie, Poniatowa</p>
       <p>Jeśli link mailowy nie uruchamia programu poczty: <a href="https://mail.google.com/mail/?view=cm&fs=1&to=kontakt@mdredesign.com.pl&su=Zapytanie" target="_blank" rel="noopener noreferrer">Wyślij przez Gmail</a></p>
       
       <div class="socials">

@@ -78,6 +78,16 @@ const zoomImage = zoomOverlay ? zoomOverlay.querySelector('img') : null;
 const galleryDataPath = 'gallery.json';
 const arrangementsDataPath = 'aranzacje.json'; 
 const catalogsDataPaths = ['katalogi.json', 'katalogi.php'];
+const galleryFilterButtons = Array.from(document.querySelectorAll('[data-gallery-filter]'));
+const GALLERY_FILTER_ALL = 'all';
+const GALLERY_FILTER_MAP = {
+  renowacje: ['renowacje', 'renowacja', 'odrestaurowane', 'odrestaurowany', 'restaurowane', 'restaurowany'],
+  nowe: ['nowe', 'nowy', 'new'],
+  przerobione: ['przerobione', 'przerobiony', 'przeksztalcone', 'przeksztalcony', 'upcycling', 'upcykling']
+};
+
+let galleryData = null;
+let activeGalleryFilter = GALLERY_FILTER_ALL;
 
 const bindZoom = img => {
   if (!zoomOverlay || !zoomImage) {
@@ -257,28 +267,160 @@ const buildGalleryItem = product => {
   return figure;
 };
 
+const normalizeGalleryFilterValue = value => {
+  if (typeof value !== 'string') {
+    return '';
+  }
+
+  return value
+    .trim()
+    .toLowerCase()
+    .normalize('NFD')
+    .replace(/[\u0300-\u036f]/g, '')
+    .replace(/[\s_-]+/g, '');
+};
+
+const normalizeGalleryFilterKey = filter => {
+  const normalized = normalizeGalleryFilterValue(filter);
+
+  if (normalized === normalizeGalleryFilterValue('renowacje')) {
+    return 'renowacje';
+  }
+  if (normalized === normalizeGalleryFilterValue('nowe')) {
+    return 'nowe';
+  }
+  if (normalized === normalizeGalleryFilterValue('przerobione')) {
+    return 'przerobione';
+  }
+
+  return GALLERY_FILTER_ALL;
+};
+
+const getGalleryProductFilterValues = product => {
+  const collected = [];
+  const keyFields = ['klucz', 'filterKey', 'galleryKey', 'key', 'kategoria', 'category', 'typ', 'type', 'rodzaj'];
+
+  keyFields.forEach(field => {
+    const value = product[field];
+    if (typeof value === 'string' && value.trim()) {
+      collected.push(value);
+      return;
+    }
+
+    if (Array.isArray(value)) {
+      value.forEach(entry => {
+        if (typeof entry === 'string' && entry.trim()) {
+          collected.push(entry);
+        }
+      });
+    }
+  });
+
+  if (Array.isArray(product.tags)) {
+    product.tags.forEach(tag => {
+      if (typeof tag === 'string' && tag.trim()) {
+        collected.push(tag);
+      }
+    });
+  }
+
+  return collected.map(normalizeGalleryFilterValue).filter(Boolean);
+};
+
+const isGalleryProductVisibleForFilter = (product, filter) => {
+  if (filter === GALLERY_FILTER_ALL) {
+    return true;
+  }
+
+  const expectedKeys = GALLERY_FILTER_MAP[filter] || [];
+  if (expectedKeys.length === 0) {
+    return false;
+  }
+
+  const normalizedExpected = expectedKeys.map(normalizeGalleryFilterValue);
+  const productKeys = getGalleryProductFilterValues(product);
+
+  return productKeys.some(value => normalizedExpected.includes(value));
+};
+
+const renderGallery = () => {
+  if (!galleryData || typeof galleryData !== 'object') {
+    return;
+  }
+
+  Object.entries(galleryData).forEach(([sectionKey, products]) => {
+    const container = document.querySelector(`[data-gallery="${sectionKey}"]`);
+    if (!container || !Array.isArray(products)) {
+      return;
+    }
+
+    const filteredProducts = products.filter(product => {
+      if (!product || !Array.isArray(product.images) || product.images.length === 0) {
+        return false;
+      }
+
+      return isGalleryProductVisibleForFilter(product, activeGalleryFilter);
+    });
+
+    container.innerHTML = '';
+
+    if (filteredProducts.length === 0) {
+      const empty = document.createElement('p');
+      empty.className = 'gallery-status';
+      empty.textContent = 'Brak produktów dla wybranego filtra.';
+      container.appendChild(empty);
+      return;
+    }
+
+    filteredProducts.forEach(product => {
+      container.appendChild(buildGalleryItem(product));
+    });
+  });
+};
+
+const syncGalleryFilterButtons = () => {
+  galleryFilterButtons.forEach(button => {
+    const buttonFilter = normalizeGalleryFilterKey(button.getAttribute('data-gallery-filter') || GALLERY_FILTER_ALL);
+    const isActive = buttonFilter === activeGalleryFilter;
+    button.classList.toggle('is-active', isActive);
+    button.setAttribute('aria-pressed', String(isActive));
+  });
+};
+
+const initGalleryFilters = () => {
+  if (galleryFilterButtons.length === 0) {
+    return;
+  }
+
+  const initialActiveButton = galleryFilterButtons.find(button => button.classList.contains('is-active'));
+  activeGalleryFilter = normalizeGalleryFilterKey(
+    initialActiveButton ? initialActiveButton.getAttribute('data-gallery-filter') || GALLERY_FILTER_ALL : GALLERY_FILTER_ALL
+  );
+  syncGalleryFilterButtons();
+
+  galleryFilterButtons.forEach(button => {
+    button.addEventListener('click', () => {
+      const requestedFilter = normalizeGalleryFilterKey(button.getAttribute('data-gallery-filter') || GALLERY_FILTER_ALL);
+      if (requestedFilter === activeGalleryFilter) {
+        return;
+      }
+
+      activeGalleryFilter = requestedFilter;
+      syncGalleryFilterButtons();
+      renderGallery();
+    });
+  });
+};
+
 const buildGallery = async () => {
   try {
     const response = await fetch(galleryDataPath, { cache: 'no-store' });
     if (!response.ok) {
       console.warn('Brak pliku gallery.json.');
-      return Promise.resolve();
+      return;
     }
-    const data = await response.json();
-
-    Object.entries(data).forEach(([sectionKey, products]) => {
-      const container = document.querySelector(`[data-gallery="${sectionKey}"]`);
-      if (!container || !Array.isArray(products)) {
-        return;
-      }
-      container.innerHTML = '';
-      products.forEach(product => {
-        if (!product || !Array.isArray(product.images) || product.images.length === 0) {
-          return;
-        }
-        container.appendChild(buildGalleryItem(product));
-      });
-    });
+    galleryData = await response.json();
+    renderGallery();
   } catch (error) {
     console.warn('Nie udalo sie wczytac galerii.', error);
   }
@@ -468,6 +610,7 @@ const initGalleryScrollButtons = () => {
   });
 };
 
+initGalleryFilters();
 buildGallery().then(() => {
   initGalleryScrollButtons();
 });
