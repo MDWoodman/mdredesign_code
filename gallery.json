@@ -7,7 +7,7 @@
       "price": "489 zł"
       ,
       "status": "dostępny",
-      "filterKey": "renowacje",
+      "filterKey": "przerobiony",
       "tags": ["vintage", "renowacja"],
       "beforeImages": [
         "images/light_section/produkt_1/1_old.jpg",
@@ -130,14 +130,14 @@
       "status": "dostępny",
       "filterKey": "renowacje",
       "tags": ["renowacja"],
-      "beforeImages": ["images/time_section/produkt_2/1_old.jpg" , "images/time_section/produkt_2/2_old.jpg"],
+      "beforeImages": ["images/time_section/product_2/1_old.jpg" , "images/time_section/product_2/2_old.jpg"],
   
       "images": [
-        "images/time_section/produkt_2/glowne.png",
-        "images/time_section/produkt_2/1.jpg",
-        "images/time_section/produkt_2/2.jpg",
-        "images/time_section/produkt_2/3.jpg",
-        "images/time_section/produkt_2/4.jpg"
+        "images/time_section/product_2/glowne.png",
+        "images/time_section/product_2/1.jpg",
+        "images/time_section/product_2/2.jpg",
+        "images/time_section/product_2/3.jpg",
+        "images/time_section/product_2/4.jpg"
        
       ]
       ,  "allegroUrl": "https://allegrolokalnie.pl/oferta/zegar-scienny-handmade-z-drewna-i-soli-rustykalny-z-wahadlem"
