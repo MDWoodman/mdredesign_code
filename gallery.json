@@ -147,6 +147,20 @@
        
       ]
     }
+    ,
+    {
+      "title": "Odnowiona szafka wisząca „Nowe Życie” | Drewno sosnowe i dekoracyjne szkło strukturalne",
+      "description": "Ręcznie odnowiona drewniana szafka wisząca ze szkłem strukturalnym, która dzięki starannej renowacji odzyskała swój niepowtarzalny charakter i funkcjonalność, stając się wyjątkowym elementem wnętrza w stylu rustykalnym, vintage lub nowoczesnym.",
+      "price": "do ustalenia",
+      "status": "sprzedany",
+      "tags": ["renowacja"],
+      "beforeImages": ["images/furniture_section/produkt_2/1_old.jpg" , "images/furniture_section/produkt_3/1_old.jpg"],
+      "images": [
+        "images/furniture_section/produkt_3/1.jpg"
+       
+      ]
+    }
+
 
 
   ]
