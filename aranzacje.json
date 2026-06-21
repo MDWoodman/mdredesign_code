@@ -1,0 +1,30 @@
+{
+  "enabled": true,
+  "items": [
+    
+    {
+      "title": "Aranżacja naturalna",
+      "description": "Ręcznie wykonana lampa z gałęzi i jutowego sznurka buduje ciepły, przytulny klimat salonu.",
+      "image": "images/aranzacje/1772135527116.png",
+      "visible": true
+    },
+    {
+      "title": "Aranżacja marynistyczna",
+      "description": "Ścienna lampa w formie latarni i dekor z morskim motywem tworzą ciepłą, nadmorską atmosferę wnętrza.",
+      "image": "images/aranzacje/1772135527101.png",
+      "visible": true
+    },
+    {
+      "title": "Aranżacja restauracyjna",
+      "description": "Ręcznie wykonany świecznik z kryształami jako centralny akcent stołu buduje ciepły, nastrojowy klimat idealny do tarasu i strefy jadalnianej.",
+      "image": "images/aranzacje/1772135527105.png",
+      "visible": true
+    },
+    {
+      "title": "Aranżacja kawiarniana",
+      "description": "Niebieski świecznik z kryształami ustawiony w nowoczesnej strefie wypoczynku dodaje wnętrzu elegancji i tworzy przytulny, wieczorny nastrój.",
+      "image": "images/aranzacje/1772135527109.png",
+      "visible": true
+    }
+  ]
+}

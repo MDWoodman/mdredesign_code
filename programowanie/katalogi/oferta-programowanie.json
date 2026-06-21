@@ -1,0 +1,27 @@
+[
+  {
+    "title": "Strony internetowe dla firm i specjalistów",
+    "description": "Projektuję i wdrażam nowoczesne strony WWW: od prostych landing page po rozbudowane serwisy z CMS i integracjami.",
+    "tags": ["UX/UI", "SEO technical", "CMS", "Integracje API"]
+  },
+  {
+    "title": "Aplikacje webowe",
+    "description": "Tworzę aplikacje webowe wspierające sprzedaż, obsługę klientów, procesy wewnętrzne i automatyzację pracy.",
+    "tags": ["Frontend", "Backend", "Bazy danych", "Panel administracyjny"]
+  },
+  {
+    "title": "Aplikacje desktopowe .NET",
+    "description": "Buduję narzędzia desktopowe w .NET dopasowane do pracy operacyjnej, raportowania i zarządzania danymi.",
+    "tags": ["C#", ".NET", "WPF/WinForms", "Integracje z systemami"]
+  },
+  {
+    "title": "Systemy obliczeniowe w Python",
+    "description": "Implementuję rozwiązania obliczeniowe i analityczne w Python: modele, automatyczne kalkulatory, przetwarzanie danych.",
+    "tags": ["Python", "NumPy/Pandas", "Automatyzacja", "Raporty"]
+  },
+  {
+    "title": "Wsparcie dla firm i osób indywidualnych",
+    "description": "Współpracuję zarówno z firmami, jak i klientami indywidualnymi — od konsultacji po pełne wdrożenie projektu.",
+    "tags": ["B2B", "B2C", "Konsultacje", "Utrzymanie"]
+  }
+]
